@@ -36,6 +36,11 @@ class Barang {
     print("Kategori : $kategori");
     print("--------------------");
   }
+
+// Method untuk menghitung nilai stok
+double nilaiStok() {
+  return harga * stok;
+  }
 }
 
 // ==========================
@@ -102,10 +107,6 @@ class MyHomePage extends StatelessWidget {
     bukuTulis.tampilkan();
     pulpen.tampilkan();
     roti.tampilkan();
-
-for (Barang barang in daftarBarangObjek) {
-  barang.tampilkan();
-}
 
 // ==========================
 // LIST BARANG
@@ -319,3 +320,12 @@ for (Barang barang in daftarBarangObjek) {
 // misalnya menambah barang, mengubah data barang,
 // mengelola stok, dan menambahkan fitur baru tanpa
 // harus mengubah banyak bagian program.
+
+// ==========================
+// NILAI STOK BARANG
+// ==========================
+// Nilai stok berguna untuk mengetahui nilai aset
+// koperasi yang masih tersimpan dalam bentuk barang.
+// Angka ini membantu koperasi membuat laporan aset,
+// mengetahui nilai persediaan, dan memantau kondisi
+// keuangan koperasi.
