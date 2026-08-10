@@ -306,3 +306,16 @@ for (Barang barang in daftarBarangObjek) {
 //
 // Setiap barang dapat dibuat sebagai objek yang berbeda,
 // tetapi tetap menggunakan konsep Barang yang sama.
+
+// ==========================
+// JAWABAN LKPD-5 OOP
+// ==========================
+//
+// Keuntungan memodelkan barang sebagai objek adalah
+// data dan fungsi barang menjadi lebih terstruktur.
+// Setiap barang memiliki atribut seperti nama, harga,
+// stok, dan kategori dalam satu objek. Dengan begitu,
+// sistem koperasi ke depan lebih mudah dikembangkan,
+// misalnya menambah barang, mengubah data barang,
+// mengelola stok, dan menambahkan fitur baru tanpa
+// harus mengubah banyak bagian program.
