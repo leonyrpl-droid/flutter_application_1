@@ -41,6 +41,10 @@ class Barang {
 double nilaiStok() {
   return harga * stok;
   }
+// Method untuk mengecek apakah barang bisa dijual
+bool bisaDijual(int diminta) {
+  return stok >= diminta;
+  }
 }
 
 // ==========================
@@ -329,3 +333,13 @@ for (Barang barang in daftarBarangObjek) {
 // Angka ini membantu koperasi membuat laporan aset,
 // mengetahui nilai persediaan, dan memantau kondisi
 // keuangan koperasi.
+
+// ==========================
+// JAWABAN BISA DIJUAL
+// ==========================
+//
+// Pengecekan diletakkan di dalam objek Barang agar
+// aturan stok terpusat dan setiap barang dapat
+// mengecek sendiri apakah stoknya mencukupi.
+// Hal ini membuat kode lebih rapi, mudah digunakan,
+// dan mengurangi kesalahan saat sistem dikembangkan.
