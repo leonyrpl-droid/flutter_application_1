@@ -103,6 +103,10 @@ class MyHomePage extends StatelessWidget {
     pulpen.tampilkan();
     roti.tampilkan();
 
+for (Barang barang in daftarBarangObjek) {
+  barang.tampilkan();
+}
+
 // ==========================
 // LIST BARANG
 // ==========================
@@ -114,9 +118,9 @@ class MyHomePage extends StatelessWidget {
 // tanpa memanggil tampilkan() satu per satu.
 
 List<Barang> daftarBarangObjek = [
-  Barang("Buku Tulis", 3000, 10, "ATK"),
-  Barang("Pulpen", 2500, 15, "ATK"),
-  Barang("Roti", 5000, 8, "Makanan"),
+  bukuTulis,
+  pulpen,
+  roti,
 ];
 
 // Menampilkan semua barang menggunakan perulangan.
