@@ -48,6 +48,17 @@ bool bisaDijual(int diminta) {
 }
 
 // ==========================
+// CLASS PEMBELI
+// ==========================
+class Pembeli {
+  String nama;
+  bool statusAnggota;
+
+  // Konstruktor
+  Pembeli(this.nama, this.statusAnggota);
+}
+
+// ==========================
 // CLASS MY APP
 // ==========================
 class MyApp extends StatelessWidget {
@@ -343,3 +354,15 @@ for (Barang barang in daftarBarangObjek) {
 // mengecek sendiri apakah stoknya mencukupi.
 // Hal ini membuat kode lebih rapi, mudah digunakan,
 // dan mengurangi kesalahan saat sistem dikembangkan.
+
+// ==========================
+// RELASI PEMBELI & BARANG
+// ==========================
+//
+// Relasi yang wajar adalah satu Pembeli dapat membeli
+// satu atau beberapa Barang dalam satu transaksi.
+// Sebaliknya, satu Barang dapat dibeli oleh banyak Pembeli
+// pada transaksi yang berbeda.
+//
+// Dalam satu transaksi, Pembeli menjadi pihak yang membeli
+// Barang, sedangkan Barang menjadi item yang dibeli.
