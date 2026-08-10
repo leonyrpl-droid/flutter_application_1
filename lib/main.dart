@@ -103,6 +103,27 @@ class MyHomePage extends StatelessWidget {
     pulpen.tampilkan();
     roti.tampilkan();
 
+// ==========================
+// LIST BARANG
+// ==========================
+
+// Dibandingkan Sprint 3 yang menggunakan objek
+// secara terpisah, List<Barang> lebih rapi karena
+// semua barang disimpan dalam satu kumpulan.
+// Dengan perulangan, semua barang dapat ditampilkan
+// tanpa memanggil tampilkan() satu per satu.
+
+List<Barang> daftarBarangObjek = [
+  Barang("Buku Tulis", 3000, 10, "ATK"),
+  Barang("Pulpen", 2500, 15, "ATK"),
+  Barang("Roti", 5000, 8, "Makanan"),
+];
+
+// Menampilkan semua barang menggunakan perulangan.
+for (Barang barang in daftarBarangObjek) {
+  barang.tampilkan();
+}
+
     // ==========================
     // MENENTUKAN HARGA
     // ==========================
