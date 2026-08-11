@@ -58,7 +58,7 @@ bool bisaDijual(int diminta) {
 
     return false;
   }
-}
+}} // <-- ini penutup class Barang
 
 // ==========================
 // CLASS BARANG PROMO
@@ -434,3 +434,13 @@ for (Barang barang in daftarBarangObjek) {
 //
 // Dalam satu transaksi, Pembeli menjadi pihak yang membeli
 // Barang, sedangkan Barang menjadi item yang dibeli.
+
+// ==========================
+// JAWABAN INTEGRITAS DATA
+// ==========================
+//
+// Melindungi _stok penting bagi integritas data koperasi
+// agar stok tidak dapat diubah sembarangan dari luar class.
+// Perubahan stok hanya dilakukan melalui method jual()
+// sehingga jumlah stok tetap akurat, tidak mudah salah,
+// dan tidak menjadi minus.
