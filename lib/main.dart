@@ -58,7 +58,7 @@ bool bisaDijual(int diminta) {
 
     return false;
   }
-}} // <-- ini penutup class Barang
+} // <-- ini penutup class Barang
 
 // ==========================
 // CLASS BARANG PROMO
@@ -78,6 +78,46 @@ class BarangPromo extends Barang {
   // Method khusus menghitung harga promo
   double hargaPromo() {
     return harga - (harga * diskon / 100);
+  }
+
+   // Override method tampilkan()
+  @override
+  void tampilkan() {
+    print("=== BARANG PROMO ===");
+    print("PROMO");
+    print("Nama        : $nama");
+    print("Harga Coret : Rp$harga");
+    print("Diskon      : $diskon%");
+    print("Harga Promo : Rp${hargaPromo()}");
+    print("Stok        : $stok");
+    print("Kategori    : $kategori");
+    print("--------------------");
+  }
+}
+
+// ==========================
+// CLASS BARANG GROSIR
+// ==========================
+class BarangGrosir extends Barang {
+  int minimalBeli;
+
+  BarangGrosir(
+    String nama,
+    double harga,
+    int stok,
+    String kategori,
+    this.minimalBeli,
+  ) : super(nama, harga, stok, kategori);
+
+  @override
+  void tampilkan() {
+    print("=== BARANG GROSIR ===");
+    print("Nama        : $nama");
+    print("Harga       : Rp$harga");
+    print("Stok        : $stok");
+    print("Kategori    : $kategori");
+    print("Minimal Beli: $minimalBeli");
+    print("--------------------");
   }
 }
 
@@ -180,6 +220,8 @@ BarangPromo promo = BarangPromo(
   20,
 );
 
+promo.tampilkan();
+
 print("=== BARANG PROMO ===");
 print("Nama : ${promo.nama}");
 print("Harga Normal : Rp${promo.harga}");
@@ -190,6 +232,20 @@ print("Harga Promo : Rp${promo.hargaPromo()}");
     bukuTulis.tampilkan();
     pulpen.tampilkan();
     roti.tampilkan();
+
+// ==========================
+// OBJEK BARANG GROSIR
+// ==========================
+BarangGrosir grosir = BarangGrosir(
+  "Buku Tulis Grosir",
+  2500,
+  50,
+  "ATK",
+  10,
+);
+
+print("=== BARANG GROSIR ===");
+grosir.tampilkan();
 
 // ==========================
 // LIST BARANG
@@ -444,3 +500,39 @@ for (Barang barang in daftarBarangObjek) {
 // Perubahan stok hanya dilakukan melalui method jual()
 // sehingga jumlah stok tetap akurat, tidak mudah salah,
 // dan tidak menjadi minus.
+
+// ==========================
+// JAWABAN MANFAAT OVERRIDE
+// ==========================
+//
+// Override digunakan agar BarangPromo dapat menampilkan
+// informasi khusus yang berbeda dari Barang biasa.
+// Dengan override, method tampilkan() dapat menampilkan
+// label "PROMO" dan harga coret sesuai kebutuhan barang promo.
+
+// ==========================
+// JAWABAN PEWARISAN
+// ==========================
+//
+// Pewarisan tepat digunakan ketika kelas turunan
+// memiliki hubungan "adalah sebuah" dengan kelas induk
+// dan membutuhkan atribut atau method dari kelas induk.
+//
+// Pewarisan tidak tepat jika tidak memiliki hubungan
+// tersebut atau hanya membutuhkan fungsi tertentu saja.
+
+// ==========================
+// CATATAN KERJA BARANG GROSIR
+// ==========================
+//
+// Membuat class BarangGrosir sebagai kelas turunan
+// dari class Barang menggunakan extends.
+//
+// BarangGrosir mewarisi atribut dan method dari Barang
+// serta memiliki atribut tambahan yaitu minimalBeli.
+//
+// Pewarisan tepat digunakan jika kelas turunan
+// memiliki hubungan "adalah sebuah" dengan kelas induk.
+//
+// Pewarisan tidak tepat jika tidak memiliki hubungan
+// tersebut atau hanya membutuhkan fungsi tertentu saja.
