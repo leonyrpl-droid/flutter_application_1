@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 
 void main() {
+  Barang bukuTulis = Barang(
+    "Buku Tulis",
+    3000,
+    10,
+    "ATK",
+  );
+
+  print("Stok sebelum diubah : ${bukuTulis.stok}");
+
+  bukuTulis._stok = 100;
+
+  print("Stok setelah diubah : ${bukuTulis.stok}");
+
   runApp(const MyApp());
 }
 
@@ -536,3 +549,19 @@ for (Barang barang in daftarBarangObjek) {
 //
 // Pewarisan tidak tepat jika tidak memiliki hubungan
 // tersebut atau hanya membutuhkan fungsi tertentu saja.
+
+// ==========================
+// CATATAN KERJA UJI SERANGAN
+// ==========================
+//
+// Mencoba mengubah _stok secara langsung dari main().
+//
+// Hasil percobaan menunjukkan bahwa _stok dapat diubah
+// karena main() dan class Barang berada dalam file yang sama.
+//
+// Hal ini menunjukkan bahwa penggunaan _ pada Dart
+// membatasi akses pada library/file.
+//
+// Perubahan stok sebaiknya dilakukan melalui method jual()
+// agar data stok lebih terkontrol dan tidak mudah diubah
+// secara sembarangan.
