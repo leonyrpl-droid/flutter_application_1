@@ -48,6 +48,27 @@ bool bisaDijual(int diminta) {
 }
 
 // ==========================
+// CLASS BARANG PROMO
+// ==========================
+class BarangPromo extends Barang {
+  double diskon;
+
+  // Konstruktor dengan super(...)
+  BarangPromo(
+    String nama,
+    double harga,
+    int stok,
+    String kategori,
+    this.diskon,
+  ) : super(nama, harga, stok, kategori);
+
+  // Method khusus menghitung harga promo
+  double hargaPromo() {
+    return harga - (harga * diskon / 100);
+  }
+}
+
+// ==========================
 // CLASS PEMBELI
 // ==========================
 class Pembeli {
@@ -117,6 +138,20 @@ class MyHomePage extends StatelessWidget {
       8,
       "Makanan",
     );
+
+BarangPromo promo = BarangPromo(
+  "Buku Tulis Promo",
+  5000,
+  10,
+  "ATK",
+  20,
+);
+
+print("=== BARANG PROMO ===");
+print("Nama : ${promo.nama}");
+print("Harga Normal : Rp${promo.harga}");
+print("Diskon : ${promo.diskon}%");
+print("Harga Promo : Rp${promo.hargaPromo()}");
 
     // Memanggil method tampilkan()
     bukuTulis.tampilkan();
