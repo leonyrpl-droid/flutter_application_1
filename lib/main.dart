@@ -21,11 +21,14 @@ double hitungHargaAkhir(double total, double persenPotongan) {
 class Barang {
   String nama;
   double harga;
-  int stok;
+  int _stok;
   String kategori;
 
   // Konstruktor
-  Barang(this.nama, this.harga, this.stok, this.kategori);
+  Barang(this.nama, this.harga, this._stok, this.kategori);
+
+  // Getter untuk membaca stok
+int get stok => _stok;
 
   // Method tampilkan()
   void tampilkan() {
@@ -39,11 +42,21 @@ class Barang {
 
 // Method untuk menghitung nilai stok
 double nilaiStok() {
-  return harga * stok;
+  return harga * _stok;
   }
 // Method untuk mengecek apakah barang bisa dijual
 bool bisaDijual(int diminta) {
-  return stok >= diminta;
+  return _stok >= diminta;
+  }
+
+   // Method untuk menjual barang
+  bool jual(int n) {
+    if (_stok >= n) {
+      _stok -= n;
+      return true;
+    }
+
+    return false;
   }
 }
 
@@ -124,6 +137,26 @@ class MyHomePage extends StatelessWidget {
       10,
       "ATK",
     );
+
+print("=== UJI ENKAPSULASI STOK ===");
+
+print("Stok awal : ${bukuTulis.stok}");
+
+if (bukuTulis.jual(3)) {
+  print("Penjualan 3 barang berhasil");
+} else {
+  print("Penjualan gagal");
+}
+
+print("Stok setelah jual : ${bukuTulis.stok}");
+
+if (bukuTulis.jual(20)) {
+  print("Penjualan 20 barang berhasil");
+} else {
+  print("Penjualan 20 barang gagal karena stok tidak cukup");
+}
+
+print("Stok akhir : ${bukuTulis.stok}");
 
     Barang pulpen = Barang(
       "Pulpen",
