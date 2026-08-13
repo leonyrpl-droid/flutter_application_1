@@ -14,6 +14,9 @@ void main() {
 
   print("Stok setelah diubah : ${bukuTulis.stok}");
 
+  prosesBeli("2");
+  prosesBeli("dua");
+
   runApp(const MyApp());
 }
 
@@ -26,6 +29,22 @@ double hitungTotal(int jumlah, double harga) {
 
 double hitungHargaAkhir(double total, double persenPotongan) {
   return total - (total * persenPotongan / 100);
+}
+
+// ==========================
+// FUNGSI PROSES BELI
+// ==========================
+void prosesBeli(String inputJumlah) {
+  try {
+    int jumlah = int.parse(inputJumlah);
+
+    print("Jumlah barang yang dibeli: $jumlah");
+    print("Penjualan berhasil diproses.");
+  } catch (e) {
+    print("Input tidak valid. Silakan masukkan jumlah berupa angka.");
+  } finally {
+    print("Transaksi dicatat di log.");
+  }
 }
 
 // ==========================
@@ -565,3 +584,13 @@ for (Barang barang in daftarBarangObjek) {
 // Perubahan stok sebaiknya dilakukan melalui method jual()
 // agar data stok lebih terkontrol dan tidak mudah diubah
 // secara sembarangan.
+
+// ==========================
+// KOMENTAR PENANGANAN GALAT
+// ==========================
+
+// Penanganan galat meningkatkan kepercayaan pengurus
+// karena program tidak langsung berhenti ketika terjadi
+// kesalahan input. Sistem memberikan pesan yang jelas
+// dan transaksi tetap dicatat sehingga program lebih
+// aman, stabil, dan dapat diandalkan.
