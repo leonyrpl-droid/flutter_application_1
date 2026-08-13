@@ -41,8 +41,8 @@ void prosesBeli(String inputJumlah) {
     print("Jumlah barang yang dibeli: $jumlah");
     print("Penjualan berhasil diproses.");
   } catch (e) {
-    print("Input tidak valid. Silakan masukkan jumlah berupa angka.");
-  } finally {
+  print("Input '$inputJumlah' bukan angka. Silakan ulangi.");
+} finally {
     print("Transaksi dicatat di log.");
   }
 }
