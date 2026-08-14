@@ -20,6 +20,31 @@ Future<void> muatLaporan() async {
 }
 
 // ==========================
+// DOKUMENTASI TP 12.2
+// ==========================
+//
+// 1. Tipe data dan kontrol alur digunakan untuk mengolah
+//    harga, jumlah pembelian, stok, potongan, dan status anggota.
+//
+// 2. OOP digunakan melalui class Barang, Pembeli, BarangPromo,
+//    dan BarangGrosir.
+//
+// 3. Pewarisan dan override digunakan pada BarangPromo
+//    dan BarangGrosir.
+//
+// 4. Try-catch-finally digunakan untuk menangani kesalahan
+//    input agar program tetap berjalan stabil.
+//
+// 5. Asinkron digunakan pada muatLaporan() untuk proses
+//    pemuatan laporan tanpa menghentikan program.
+//
+// Kelima konsep tersebut bekerja sama dalam satu sistem kasir,
+// mulai dari memuat laporan, menampilkan barang, memproses transaksi,
+// menghitung harga, mengurangi stok, hingga memberikan poin anggota.
+//
+
+
+// ==========================
 // MAIN
 // ==========================
 Future<void> main() async {
