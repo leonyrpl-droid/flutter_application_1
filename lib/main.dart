@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 
 // ==========================
-// FUNGSI ASYNC
+// ASINKRON + PENANGANAN GALAT
 // ==========================
 Future<void> muatLaporan() async {
-  print("Menyiapkan laporan...");
-  await Future.delayed(const Duration(seconds: 1));
-  print("Laporan siap!");
+  try {
+    print("Menyiapkan laporan...");
+
+    await Future.delayed(
+      const Duration(seconds: 1),
+    );
+
+    // Simulasi laporan gagal
+    throw Exception("Gagal memuat laporan");
+
+  } catch (e) {
+    print("Laporan gagal dimuat: $e");
+  }
 }
 
 // ==========================
@@ -146,28 +156,32 @@ void prosesTransaksi(
     // Mengurangi stok
     bool berhasil = barang.jual(jumlah);
 
-    if (berhasil) {
-      print("Nama Barang : ${barang.nama}");
-      print("Jumlah Beli : $jumlah");
-      print("Status      : $jenisHarga");
-      print("Harga       : Rp${harga.toStringAsFixed(0)}");
-      print(
-        "Total       : Rp${totalBelanja.toStringAsFixed(0)}",
-      );
-      print("Potongan    : $persenPotongan%");
-      print(
-        "Harga Akhir : Rp${hargaAkhir.toStringAsFixed(0)}",
-      );
-      print("Stok Sisa   : ${barang.stok}");
-      print("Penjualan berhasil diproses.");
-    }
-  } catch (e) {
-    print(
-      "Input '$inputJumlah' bukan angka. Silakan ulangi.",
-    );
-  } finally {
-    print("Transaksi dicatat di log.");
-  }
+   if (berhasil) {
+  print("Nama Barang : ${barang.nama}");
+  print("Jumlah Beli : $jumlah");
+  print("Status      : $jenisHarga");
+  print("Harga       : Rp${harga.toStringAsFixed(0)}");
+  print(
+    "Total       : Rp${totalBelanja.toStringAsFixed(0)}",
+  );
+  print("Potongan    : $persenPotongan%");
+  print(
+    "Harga Akhir : Rp${hargaAkhir.toStringAsFixed(0)}",
+  );
+  print("Stok Sisa   : ${barang.stok}");
+  print("Penjualan berhasil diproses.");
+
+  // Menambahkan poin anggota
+  pembeli.tambahPoin();
+  print("Poin anggota: ${pembeli.poin}");
+}
+} catch (e) {
+  print(
+    "Input '$inputJumlah' bukan angka. Silakan ulangi.",
+  );
+} finally {
+  print("Transaksi dicatat di log.");
+}
 }
 
 // ==========================
@@ -295,11 +309,19 @@ class BarangGrosir extends Barang {
 class Pembeli {
   String nama;
   bool statusAnggota;
+  int poin;
 
   Pembeli(
     this.nama,
-    this.statusAnggota,
-  );
+    this.statusAnggota, {
+    this.poin = 0,
+  });
+
+  void tambahPoin() {
+    if (statusAnggota) {
+      poin++;
+    }
+  }
 }
 
 // ==========================
